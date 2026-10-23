@@ -1,18 +1,12 @@
+import FormularioTicketRegistrar from "./FormularioTicketRegistrar"
+import Motos from "../services/motos"
 
-import Carta_moto_main from "./Carta_moto_main"
-const Main =()=>{
-    return(
+const Main = () => {
+    return (
         <>
-        <div className="main">
-        <Carta_moto_main/>
-        <Carta_moto_main/>
-        <Carta_moto_main/>
-        <Carta_moto_main/>
-        <Carta_moto_main/>
-        <Carta_moto_main/>
-        <Carta_moto_main/>
-        <Carta_moto_main/>
-        </div>
+          <div className="main">
+            <FormularioTicketRegistrar />
+          </div>
         </>
     )
 }
