@@ -1,26 +1,22 @@
-import Marca_modelo from "./Marca-categoria"
+import Marca from "./Header_marcas"
+import Categoria from "./Header_categorias"
 
 
 const Header = () => {
     return (
         <main className='contenido'>
             <div className="marca">
-                <p className="pMarca">Marca</p>
+                <p className="pMarca">Marcas</p>
                 <div className="marca_modelo ">
-                    <Marca_modelo />
-                    <Marca_modelo />
-                    <Marca_modelo />
-                    <Marca_modelo />
+                    <Marca />
+                    
                 </div>
             </div>
 
             <div className="marca">
-                <p className="pMarca">categoria</p>
+                <p className="pMarca">categorias</p>
                 <div className="marca_modelo ">
-                    <Marca_modelo />
-                    <Marca_modelo />
-                    <Marca_modelo />
-                    <Marca_modelo />
+                    <Categoria/>
                 </div>
             </div>
 

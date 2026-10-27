@@ -1,4 +1,7 @@
+
 const {totalmotos,ingresarmoto,ingresarColor,moto,modificarmoto,eliminarmoto} = require("../consultas/consultasMotos")
+
+
 
 const obtenermotos = async(req,res)=>{
     const motos = await totalmotos()
@@ -6,18 +9,18 @@ const obtenermotos = async(req,res)=>{
 }
 
 const ingresarmotoPost = async(req,res)=>{
-    const moto = req.body
+    const moto = {
+        ...req.body,
+        imagen: req.file ? req.file.path : null,     
+    }
+
     await ingresarmoto(moto)
     const motos = await totalmotos()
     res.json(motos)
+
+    console.log("ARCHIVO:", req.file);
+console.log("DATOS:", req.body);
 }
-
-const ingresargestorPost = async(req,res)=>{
-    const gestor = req.body
-    await ingresargestor(gestor)
-}
-
-
 
 const ingresarColorPost = async(req,res)=>{
     const color = req.body

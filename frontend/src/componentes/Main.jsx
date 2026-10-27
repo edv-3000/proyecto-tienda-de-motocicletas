@@ -1,14 +1,15 @@
 import FormularioTicketRegistrar from "./FormularioTicketRegistrar"
+import FormularioMoto from "./Formulario_moto"
 import Motos from "../services/motos"
 
-const Main = () => {
+const Menu = () => {
     return (
         <>
           <div className="main">
-            <FormularioTicketRegistrar />
+            <FormularioMoto/>
           </div>
         </>
     )
 }
 
-export default Main
+export default Menu

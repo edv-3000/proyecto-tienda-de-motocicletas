@@ -1,4 +1,4 @@
-import moto from "../assets/yamaha.jpg"
+
 
 const Carta_moto_main = ({Motos}) => {
     return (
