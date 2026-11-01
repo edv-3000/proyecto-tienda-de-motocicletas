@@ -2,6 +2,7 @@ import naked from "../assets/images/imagen categorias/mt-03.jpg"
 import scooter from "../assets/images/imagen categorias/honda-elite.jpg"
 import enduro from "../assets/images/imagen categorias/xtz-150.jpg"
 import deportivas from "../assets/images/imagen categorias/gsx-250.jpg"
+import Marca from "./Header_marcas"
 
 const Categoria =()=>{
     const categoria =[naked,scooter,enduro,deportivas]
@@ -10,7 +11,7 @@ const Categoria =()=>{
 return(
     <>
     {categoria.map((e, index) =>(
-        <div className="contenido_marca">
+        <div className="contenido_marca" key={index}>
         <img className="imagen_marca_categoria" src={e} alt="logo marcas" />
         <p>{categoria_text[index]}</p>
     </div>

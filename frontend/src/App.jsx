@@ -1,19 +1,20 @@
-import { useState } from 'react'
-import Navbar from './componentes/Navbar'
-import Footer from './componentes/Footer'
-import Header from './componentes/Header'
-import Menu from './componentes/main'
+
 import './assets/styles/style.css'
+import { Route,Routes } from 'react-router-dom'
+import Publico from './pages/Publico'
+import Gestor from './pages/Gestor'
+import FormularioMoto from './pages/Formulario_moto'
 
 
 function App() {
 
   return (
     <>
-    <Navbar/>
-    <Header/>
-    <Menu/>
-    <Footer/>
+    <Routes>
+<Route path="/*" element={<Publico />} />
+<Route path="/gestor/*" element={<Gestor />} />
+<Route path="/agregarMoto" element={<FormularioMoto />} />
+</Routes>
     </>
   )
 }

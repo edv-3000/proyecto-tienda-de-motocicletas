@@ -1,9 +1,11 @@
+import { NavLink } from "react-router-dom";
+
 
 const Navbar = () => {
   return (
     <nav className="navbar bg-dark text-white p-3">
     <div className="container-fluid d-flex justify-content-between align-items-center">
-        <a className="text-white ">LONG WAY</a>
+        <NavLink to={"/"} className="text-white ">LONG WAY</NavLink>
         <div className="d-flex align-items-center gap-2">
             <p className="text-info m-0">CONSULTAR TICKET</p>
             <form className="d-flex align-items-center gap-2">

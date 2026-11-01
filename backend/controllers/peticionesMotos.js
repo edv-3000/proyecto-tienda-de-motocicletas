@@ -1,5 +1,5 @@
 
-const {totalmotos,ingresarmoto,ingresarColor,moto,modificarmoto,eliminarmoto} = require("../consultas/consultasMotos")
+const {totalmotos,ingresarmoto,moto,modificarmoto,eliminarmoto} = require("../consultas/consultasMotos")
 
 
 
@@ -22,10 +22,6 @@ const ingresarmotoPost = async(req,res)=>{
 console.log("DATOS:", req.body);
 }
 
-const ingresarColorPost = async(req,res)=>{
-    const color = req.body
-    await ingresarColor(color)
-}
 
 
 const modificarmotoPut = async(req,res)=>{
@@ -49,8 +45,14 @@ const eliminarmotoDelete = async(req,res)=>{
 
 
 const obtenermoto = async(req,res)=>{
-    const obtenermoto = moto()
-    res.json(obtenermoto)
+    try {
+        const {id} = req.params
+    const enviarmoto = await moto(id)
+    res.json(enviarmoto)
+    } catch (error) {console.log("error no se puede obtener la moto")   
+        res
+    }
+    
 }
 
 

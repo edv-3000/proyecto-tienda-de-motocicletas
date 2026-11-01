@@ -1,18 +1,42 @@
-const Carta_moto_id=({moto})=>{
-    return(
+import { useContext } from "react"
+import { ContextMoto } from "../context/ContextMoto"
+import { NavLink } from "react-router-dom"
+import { useEffect } from "react"
+import { useParams } from "react-router-dom"
+
+
+const Carta_moto_id = ({ }) => {
+    const { id } = useParams()
+    const { moto, GetMoto } = useContext(ContextMoto)
+
+    useEffect(() => {
+        GetMoto(id)
+    }, [])
+    return (
         <>
-        <div className="card" style={{width: "10rem"}}>
-                        <img src={moto.id} className="card-img-top" alt="..."/>
-                            <div className="card-body">
-                                <h5 className="card-title">{moto.modelo}</h5>
-                                <p className="card-text">{moto.modelo}</p>
-                                <p className="card-text">{moto.categoria}</p>
-                                <p className="card-text">{moto.cilindrada}</p>
-                                <p className="card-text">{moto.color}</p>
-                                <p className="card-text">{moto.precio}</p>
-                                <a href="#" className="btn btn-primary">financiar</a>
-                            </div>
+            <div className="card mb-3" style={{ maxWidth: "540px" }}>
+                <div className="row g-0">
+                    <div className="col-md-4">
+                        <img
+                            src={`http://localhost:3000/motos/${moto.imagen}`}
+                            className="img-fluid rounded-start"
+                            alt={moto.modelo}
+                        />
                     </div>
+                    <div className="col-md-8">
+                        <div className="card-body">
+                            <h5 className="card-title">Modelo: {moto.modelo}</h5>
+                            <p className="card-text">Categoría: {moto.categoria}</p>
+                            <p className="card-text">Cilindrada: {moto.cilindrada}</p>
+                            <p className="card-text">Precio: ${moto.precio}</p>
+
+                            <NavLink to={`/financiar/${moto.id}`} className="btn btn-primary">
+                                Financiar
+                            </NavLink>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

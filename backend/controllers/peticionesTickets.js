@@ -13,6 +13,8 @@ const obtenertickets = async(req,res)=>{
 const ingresarticketPost = async(req,res)=>{
     const ticket = req.body
     await ingresarticket(ticket)
+     const totaltickets = tickets()
+    res.json(totaltickets)
 }
 const modificarticketPut = async(req,res)=>{
     const {id} = req.params

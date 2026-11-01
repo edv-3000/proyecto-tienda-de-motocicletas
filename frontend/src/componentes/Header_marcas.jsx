@@ -10,7 +10,7 @@ const Marca =()=>{
 return(
     <>
     {marcas.map((e, index) =>(
-        <div className="contenido_marca">
+        <div className="contenido_marca" key={index}>
         <img className="imagen_marca_categoria" src={e} alt="logo marcas" />
         <p>{marcas_text[index]}</p>
     </div>
