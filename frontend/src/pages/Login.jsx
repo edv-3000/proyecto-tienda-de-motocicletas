@@ -14,9 +14,9 @@ const Login =()=>{
 
     const user ={usuario,contrasena}
 
-    const enviaruser=async(e)=>{
-        e.preventDefault()
-        
+  const enviaruser = async (e) => {
+    e.preventDefault()
+    console.log("ENVIARUSER EJECUTADO")
 
         if(usuario === "" || contrasena === ""){
             alert("todos los campos deben ser llenados")
@@ -65,13 +65,9 @@ const Login =()=>{
                     <label htmlFor="contrasena" className="form-label">Contraseña</label>
                     <input type="password" className="form-control" id="contrasena" onChange={(e) => setContrasena(e.target.value)}/>
                 </div>
-                <button
-    type="button"
-    className="btn btn-primary w-100"
-    onClick={() => alert("EL CLICK FUNCIONA")}
->
-    Iniciar sesión
-</button>
+                <button type="submit" className="btn btn-primary w-100"  >
+                    Iniciar sesión
+                </button>
             </form>
         </div>
     </div>
