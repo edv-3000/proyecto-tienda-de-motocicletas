@@ -14,8 +14,8 @@ const Login =()=>{
 
     const user ={usuario,contrasena}
 
-    const enviaruser=async(e)=>{
-        e.preventDefault()
+    const enviaruser=async()=>{
+       
         
 
         if(usuario === "" || contrasena === ""){
