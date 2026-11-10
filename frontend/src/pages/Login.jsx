@@ -65,9 +65,13 @@ const Login =()=>{
                     <label htmlFor="contrasena" className="form-label">Contraseña</label>
                     <input type="password" className="form-control" id="contrasena" onChange={(e) => setContrasena(e.target.value)}/>
                 </div>
-                <button type="submit" className="btn btn-primary w-100"  >
-                    Iniciar sesión
-                </button>
+                <button
+    type="button"
+    className="btn btn-primary w-100"
+    onClick={() => alert("EL CLICK FUNCIONA")}
+>
+    Iniciar sesión
+</button>
             </form>
         </div>
     </div>
