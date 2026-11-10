@@ -41,12 +41,16 @@ const Login =()=>{
 
 
         } catch (error) {
-            if(error.response?.status === 401){
-                alert("usuario o contraseña incorrecto")
-            }else if(error.request){
-                alert("error en la conexion")
-            }        
-        }
+    console.error("Error del login:", error)
+
+    if (error.response?.status === 401) {
+        alert("Usuario o contraseña incorrectos")
+    } else if (error.request) {
+        alert("Error en la conexión")
+    } else {
+        alert("Error al iniciar sesión")
+    }
+}
 
     }
 
