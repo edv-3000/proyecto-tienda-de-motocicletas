@@ -1,15 +1,18 @@
 const express = require("express")
 const routerticket = express.Router()
 
-const {obtenerticket,obtenertickets,ingresarticketPost,modificarticketPut} = require("../controllers/peticionesTickets");
+const {obtenertickets,ingresarticketPost,modificarticketPut, obtenerticketcorreo, obtenerticketid} = require("../controllers/peticionesTickets");
+const { autorizacion } = require("../controllers/jsw");
 
 
 routerticket.post("/ticket/agregar", ingresarticketPost)
 
-routerticket.get("/ticket/:id", obtenerticket)
+routerticket.post("/ticket/correo", obtenerticketcorreo)
+
+routerticket.get("/ticket/:id", obtenerticketid)
 
 routerticket.get("/tickets", obtenertickets)
 
-routerticket.put("/ticket/modificar", modificarticketPut)
+routerticket.put("/ticket/modificar/:id",modificarticketPut)
 
 module.exports = routerticket

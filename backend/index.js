@@ -1,9 +1,11 @@
 const express = require("express");
+require("dotenv").config({ path: "./config/.env" })
 const app = express();
 const cors = require("cors");
 const routergestor = require("./routes/gestores.js")
 const routerticket = require("./routes/tickets.js");
 const routerMoto = require("./routes/Motos.js");
+
 
 app.use(cors());
 app.use(express.json());

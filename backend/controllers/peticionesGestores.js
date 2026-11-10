@@ -16,7 +16,7 @@ const gestores = async(req,res)=>{
 }
 
 const eliminarGestorDelete = async(req,res)=>{
-    const {id} = req.params
+    const {id} = req.body
     await eliminarGestor(id)
 
     const respuesta = await gestor()

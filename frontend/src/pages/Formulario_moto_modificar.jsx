@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react"
+import { useContext, useState, useEffect, } from "react"
 import { ContextMoto } from "../context/ContextMoto"
 import { useParams } from "react-router-dom"
 import axios from "axios"
@@ -23,7 +23,7 @@ const ModificarMoto =()=>{
 }, [moto]);
 
     const obtenerDatos = (e)=>{
-        e.preventdefault()
+        e.preventefault()
 
         const datos = {modelo,marca,cilindrada,categoria,precio,stock}
 
@@ -73,7 +73,7 @@ const ModificarMoto =()=>{
     <input type="number" className="form-control" id="stock" value={stock} onChange={(e) => setStock(e.target.value)} />
   </div>
 
-  <button type="submit" className="btn btn-primary">Modificar</button>
+  <button type="submit"  className="btn btn-primary">Modificar</button>
 </form>
     </>)
 

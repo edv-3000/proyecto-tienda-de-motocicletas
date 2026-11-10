@@ -31,7 +31,7 @@ const verificargestor = async ({ usuario, contrasena }) => {
 }
 
 const gestor = async () => {
-    const consulta = "SELECT * FROM gestor"
+    const consulta = "SELECT * FROM gestor WHERE rol = 'gestor'"
     const { rows: gestor } = await pool.query(consulta)
     return gestor
 }

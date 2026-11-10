@@ -19,16 +19,16 @@ const modificarmoto = async(id,{modelo,marca,cilindrada,categoria,precio,stock})
     const ingresar = await pool.query(consulta,values)
 }
 
-const eliminarmoto = async(id)=>{
-    const consulta = "DELETE FROM moto WHERE id = $1"
-    const values =[id]
-    const ingresar = await pool.query(consulta,values)
+const eliminarmoto = async (id, estado) => {
+    const consulta = "UPDATE moto SET estado = $2 WHERE id = $1"
+    const values = [id, estado]
+    await pool.query(consulta, values)
 }
 
 
-const ingresarmoto = async({imagen,modelo,marca,cilindrada,categoria,precio,stock = 0})=>{
-    const consulta = "INSERT INTO moto VALUES(DEFAULT, $1, $2, $3, $4, $5, $6, $7)"
-    const values=[imagen,modelo,marca,cilindrada,categoria,precio,stock]
+const ingresarmoto = async({imagen,modelo,marca,cilindrada,categoria,precio,stock = 0,estado})=>{
+    const consulta = "INSERT INTO moto VALUES(DEFAULT, $1, $2, $3, $4, $5, $6, $7,$8)"
+    const values=[imagen,modelo,marca,cilindrada,categoria,precio,stock,estado]
     const ingresar = await pool.query(consulta,values)
 }
 

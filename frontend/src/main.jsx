@@ -5,17 +5,23 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import { MotoProvider } from './context/ContextMoto.jsx'
 import { TicketProvider } from './context/contextTicket.jsx'
+import { AdminProvider } from './context/ContextAdmin.jsx'
+import { TokenProvider } from './context/ContextToken.jsx'
 
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
+    <TokenProvider>
       <MotoProvider>
         <TicketProvider>
-          <App />
+            <AdminProvider>
+              <App />
+            </AdminProvider>
         </TicketProvider>
       </MotoProvider>
+      </TokenProvider>
     </BrowserRouter>
   </StrictMode>,
 )
