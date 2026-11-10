@@ -14,16 +14,16 @@ const Login =()=>{
 
     const user ={usuario,contrasena}
 
-  const enviaruser = async (e) => {
-    e.preventDefault()
-    console.log("ENVIARUSER EJECUTADO")
+    const enviaruser=async(e)=>{
+        e.preventDefault()
+        
 
         if(usuario === "" || contrasena === ""){
             alert("todos los campos deben ser llenados")
             return
         }
         try {
-             const enviar = await axios.post("http://localhost:3000/gestor/login",user)
+             const enviar = await axios.post("https://long-way-backend.onrender.com/gestor/login",user)
             
             if(enviar.data.token){
                 obtenerToken(enviar.data.token)
@@ -65,14 +65,9 @@ const Login =()=>{
                     <label htmlFor="contrasena" className="form-label">Contraseña</label>
                     <input type="password" className="form-control" id="contrasena" onChange={(e) => setContrasena(e.target.value)}/>
                 </div>
-                <form>
-    <button
-        type="button"
-        onClick={() => console.log("CLICK DETECTADO")}
-    >
-        PROBAR CLICK
-    </button>
-</form>
+                <button type="submit" className="btn btn-primary w-100"  >
+                    Iniciar sesión
+                </button>
             </form>
         </div>
     </div>
