@@ -124,3 +124,7 @@ Estas variables deben configurarse en el entorno de ejecución y no deben public
 Edgar Domínguez
 
 Proyecto desarrollado como entrega final del curso Full Stack JavaScript de Desafío Latam.
+
+## 🚀 Proyecto desplegado
+
+**Ver aplicación:** [LONG WAY - Tienda de motocicletas](https://proyecto-tienda-de-motocicletas-six.vercel.app/)
