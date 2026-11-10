@@ -14,41 +14,32 @@ const Login =()=>{
 
     const user ={usuario,contrasena}
 
-    const enviaruser=async(e)=>{
-        e.preventDefault()
-        
+   const enviaruser = async (e) => {
+    e.preventDefault();
 
-        if(usuario === "" || contrasena === ""){
-            alert("todos los campos deben ser llenados")
-            return
-        }
-        try {
-             const enviar = await axios.post("https://long-way-backend.onrender.com/gestor/login",user)
-            
-            if(enviar.data.token){
-                obtenerToken(enviar.data.token)
-                console.log(enviar.data.rol)
-                if(enviar.data.rol === "admin"){
-                    alert(enviar.data.rol)
-                    navigate("/gestor/admin")
-                }else{
-                    navigate("/gestor/tickets-motos")
+    console.log("1. ENTRÓ EN enviaruser");
 
-                }
-                alert(`bienvenido ${enviar.data.usuario}`) 
-            }
-             
-
-
-        } catch (error) {
-            if(error.response?.status === 401){
-                alert("usuario o contraseña incorrecto")
-            }else if(error.request){
-                alert("error en la conexion")
-            }        
-        }
-
+    if (usuario === "" || contrasena === "") {
+        alert("Todos los campos deben ser llenados");
+        return;
     }
+
+    console.log("2. CAMPOS COMPLETADOS");
+
+    try {
+        console.log("3. ENVIANDO PETICIÓN");
+
+        const enviar = await axios.post(
+            "https://long-way-backend.onrender.com/gestor/login",
+            user
+        );
+
+        console.log("4. RESPUESTA:", enviar.data);
+
+    } catch (error) {
+        console.error("ERROR LOGIN:", error);
+    }
+};
 
     return(<>
     <div style={{minHeight : "100vh"}} className="d-flex justify-content-center align-items-center">
