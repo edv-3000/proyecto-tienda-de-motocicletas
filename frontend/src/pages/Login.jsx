@@ -23,20 +23,12 @@ const Login =()=>{
             return
         }
         try {
-             const enviar = await axios.post("https://long-way-backend.onrender.com/gestor/login",user)
-            
-            if(enviar.data.token){
-                obtenerToken(enviar.data.token)
-                console.log(enviar.data.rol)
-                if(enviar.data.rol === "admin"){
-                    alert(enviar.data.rol)
-                    navigate("/gestor/admin")
-                }else{
-                    navigate("/gestor/tickets-motos")
+             const enviar = await axios.post(
+    "https://long-way-backend.onrender.com/gestor/login",
+    user
+)
 
-                }
-                alert(`bienvenido ${enviar.data.usuario}`) 
-            }
+console.log("RESPUESTA DEL LOGIN:", enviar.data)
              
 
 
