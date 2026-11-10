@@ -1,6 +1,6 @@
 import yamaha from "../assets/images/logo marcas/yamaha-logo.jpg";
 import honda from "../assets/images/logo marcas/honda-logo.webp";
-import bajaj from "../assets/images/logo marcas/bajaj-logo.jpg";
+import bajaj from "../assets/images/logo marcas/Bajaj-logo.jpg";
 import suzuki from "../assets/images/logo marcas/susuki-logo.jpg";
 import { NavLink } from "react-router-dom";
 
