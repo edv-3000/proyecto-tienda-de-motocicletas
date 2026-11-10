@@ -23,28 +23,34 @@ const eliminarGestorDelete = async(req,res)=>{
     res.json(respuesta)
 }
 
-const verificargestorPost=async(req,res)=>{
+const verificargestorPost = async (req, res) => {
     try {
+        const gestor = await verificargestor(req.body)
 
-        const gestor=await verificargestor(req.body)
-        
-        if(!gestor){
-        return   res.status(401).json({
-                error:"usuario o contraseña incorrectos"
-            })}
+        if (!gestor) {
+            return res.status(401).json({
+                error: "usuario o contraseña incorrectos"
+            })
+        }
 
-            const token = jwt.sign({ usuario: gestor.usuario, rol: gestor.rol}, "jwt-token")
+        const token = jwt.sign(
+            { usuario: gestor.usuario, rol: gestor.rol },
+            "jwt-token"
+        )
 
-        return(res.status(200).json({
-            mensaje : "usuario y contraseña correctos",
-            token : token,
-            usuario : gestor.usuario,
-            rol : gestor.rol
-        }))
-        
+        return res.status(200).json({
+            mensaje: "usuario y contraseña correctos",
+            token,
+            usuario: gestor.usuario,
+            rol: gestor.rol
+        })
+
     } catch (error) {
-        console.error(error)
-        
+        console.error("ERROR AL VERIFICAR GESTOR:", error)
+
+        return res.status(500).json({
+            error: "Error interno del servidor"
+        })
     }
 }
 
