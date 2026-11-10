@@ -10,14 +10,14 @@ export const TicketProvider = ({ children }) => {
     const [ticketcorreo, setTicketcorreo] = useState([])
 
     const GetTickets = async () => {
-        const respuesta = await axios.get("http://localhost:3000/tickets")
+        const respuesta = await axios.get("https://long-way-backend.onrender.com/tickets")
         setTickets(respuesta.data)
 
     }
 
     const GetTicketid = async (id) => {
         try {
-            const respuesta = await axios.get(`http://localhost:3000/ticket/${id}`);
+            const respuesta = await axios.get(`https://long-way-backend.onrender.com/ticket/${id}`);
             console.log("ticket recibido:", respuesta.data);
             setTicket(respuesta.data[0]);
             
@@ -29,7 +29,7 @@ export const TicketProvider = ({ children }) => {
      const PostTicketcorreo = async (correo) => {
     try {
         const respuesta = await axios.post(
-            "http://localhost:3000/ticket/correo",{ correo: correo });
+            "https://long-way-backend.onrender.com/ticket/correo",{ correo: correo });
         setTicketcorreo(respuesta.data);
     } catch (error) {
         console.error("Error al consultar tickets por correo:", error);
@@ -38,7 +38,7 @@ export const TicketProvider = ({ children }) => {
 
 const ModificarTicket = async (id, datos) => {
     try {
-        await axios.put(`http://localhost:3000/ticket/modificar/${id}`, datos)
+        await axios.put(`https://long-way-backend.onrender.com/ticket/modificar/${id}`, datos)
         await GetTickets()
         await GetTicketid(id)
         alert("Ticket modificado correctamente")

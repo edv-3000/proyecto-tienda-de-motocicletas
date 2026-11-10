@@ -12,14 +12,14 @@ export const MotoProvider = ({ children }) => {
     const [moto, setMoto] = useState([])
 
     const GetMotos = async () => {
-        const respuesta = await axios.get("http://localhost:3000/motos")
+        const respuesta = await axios.get("https://long-way-backend.onrender.com/motos")
         setMotos(respuesta.data)
 
     }
 
     const GetMoto = async (id) => {
         try {
-            const respuesta = await axios.get(`http://localhost:3000/moto/${id}`);
+            const respuesta = await axios.get(`https://long-way-backend.onrender.com/moto/${id}`);
             console.log("Moto recibida:", respuesta.data);
             setMoto(respuesta.data[0]);
         } catch (error) {
@@ -33,7 +33,7 @@ export const MotoProvider = ({ children }) => {
     const eliminarMoto = async (id,estado) => {
     try {
         await axios.put(
-            `http://localhost:3000/motos/eliminar/${id}`,{ estado }, usarToken)
+            `https://long-way-backend.onrender.com/motos/eliminar/${id}`,{ estado }, usarToken)
 
         await GetMotos()
 
@@ -45,7 +45,7 @@ export const MotoProvider = ({ children }) => {
 const modificarMoto = async (id, datos) => {
     try {
         const respuesta = await axios.put(
-            `http://localhost:3000/motos/modificar/${id}`,
+            `https://long-way-backend.onrender.com/motos/modificar/${id}`,
             datos,
             usarToken
         )

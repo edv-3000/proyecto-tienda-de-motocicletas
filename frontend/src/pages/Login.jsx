@@ -23,7 +23,7 @@ const Login =()=>{
             return
         }
         try {
-             const enviar = await axios.post("http://localhost:3000/gestor/login",user)
+             const enviar = await axios.post("https://long-way-backend.onrender.com/gestor/login",user)
             
             if(enviar.data.token){
                 obtenerToken(enviar.data.token)

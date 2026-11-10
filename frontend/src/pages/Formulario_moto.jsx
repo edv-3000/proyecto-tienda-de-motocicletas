@@ -31,7 +31,7 @@ const FormularioMoto = () => {
       motoModelo.append("estado", estado)
 
       const respuesta = await axios.post(
-        "http://localhost:3000/motos/registrar",
+        "https://long-way-backend.onrender.com/motos/registrar",
         motoModelo,
         usarToken
       )

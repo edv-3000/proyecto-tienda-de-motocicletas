@@ -32,7 +32,7 @@ const FormularioTicketRegistrar = () => {
 
 
         try {
-            const respuesta = await axios.post("http://localhost:3000/ticket/agregar", ticket);
+            const respuesta = await axios.post("https://long-way-backend.onrender.com/ticket/agregar", ticket);
             alert(`Ticket registrado con éxito. Su número de ticket es: ${respuesta.data.id}`);
         } catch (error) {
             console.log("error al enviar ticket")

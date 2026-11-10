@@ -14,17 +14,17 @@ const {usarToken} = useContext(contextToken)
 
     const gestores = async () => {
 
-        const datos = await axios.get("http://localhost:3000/gestor/admin/gestores")
+        const datos = await axios.get("https://long-way-backend.onrender.com/gestor/admin/gestores")
         setGestor(datos.data)
     }
 
     const eliminargestor = async(id)=>{
-        const eliminar = await axios.delete(`http://localhost:3000/gestor/admin/eliminar`,{...usarToken,data :{id}})
+        const eliminar = await axios.delete(`https://long-way-backend.onrender.com/gestor/admin/eliminar`,{...usarToken,data :{id}})
         await gestores()
     }
 
     const agregargestor = async(datos)=>{
-        const agregar = await axios.post("http://localhost:3000/gestor/admin",datos,usarToken)
+        const agregar = await axios.post("https://long-way-backend.onrender.com/gestor/admin",datos,usarToken)
         await gestores()
     }
 
