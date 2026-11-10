@@ -23,26 +23,30 @@ const Login =()=>{
             return
         }
         try {
-             const enviar = await axios.post(
-    "https://long-way-backend.onrender.com/gestor/login",
-    user
-)
+             const enviar = await axios.post("http://localhost:3000/gestor/login",user)
+            
+            if(enviar.data.token){
+                obtenerToken(enviar.data.token)
+                console.log(enviar.data.rol)
+                if(enviar.data.rol === "admin"){
+                    alert(enviar.data.rol)
+                    navigate("/gestor/admin")
+                }else{
+                    navigate("/gestor/tickets-motos")
 
-console.log("RESPUESTA DEL LOGIN:", enviar.data)
+                }
+                alert(`bienvenido ${enviar.data.usuario}`) 
+            }
              
 
 
         } catch (error) {
-    console.error("Error del login:", error)
-
-    if (error.response?.status === 401) {
-        alert("Usuario o contraseña incorrectos")
-    } else if (error.request) {
-        alert("Error en la conexión")
-    } else {
-        alert("Error al iniciar sesión")
-    }
-}
+            if(error.response?.status === 401){
+                alert("usuario o contraseña incorrecto")
+            }else if(error.request){
+                alert("error en la conexion")
+            }        
+        }
 
     }
 
