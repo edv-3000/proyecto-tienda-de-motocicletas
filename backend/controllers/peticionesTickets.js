@@ -18,10 +18,19 @@ const obtenertickets = async(req,res)=>{
 }
 
 const ingresarticketPost = async(req,res)=>{
-    const ticket = req.body
-    await ingresarticket(ticket)
-     const totaltickets = await tickets()
-    res.json(totaltickets)
+    try {
+        const ticket = req.body;
+
+        const nuevoTicket = await ingresarticket(ticket);
+
+        const ticketCompleto = await ticketid(nuevoTicket.id);
+
+        return res.status(201).json(ticketCompleto[0]);
+
+    } catch (error) {
+        console.error("Error al registrar ticket:", error);
+        return res.status(500).json({ error: "Error al registrar ticket" });
+    }
 }
 const modificarticketPut = async (req, res) => {
     try {
