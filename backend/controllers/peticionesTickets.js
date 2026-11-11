@@ -20,7 +20,7 @@ const obtenertickets = async(req,res)=>{
 const ingresarticketPost = async(req,res)=>{
     const ticket = req.body
     await ingresarticket(ticket)
-     const totaltickets = tickets()
+     const totaltickets = await tickets()
     res.json(totaltickets)
 }
 const modificarticketPut = async (req, res) => {
