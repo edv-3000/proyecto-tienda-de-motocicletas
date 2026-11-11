@@ -23,9 +23,7 @@ const ingresarticketPost = async(req,res)=>{
 
         const nuevoTicket = await ingresarticket(ticket);
 
-        const ticketCompleto = await ticketid(nuevoTicket.id);
-
-        return res.status(201).json(ticketCompleto[0]);
+        return res.status(201).json(nuevoTicket);
 
     } catch (error) {
         console.error("Error al registrar ticket:", error);

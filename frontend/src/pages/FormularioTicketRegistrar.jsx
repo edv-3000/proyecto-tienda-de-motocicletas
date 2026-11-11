@@ -25,7 +25,7 @@ const FormularioTicketRegistrar = () => {
             estado: "en proceso", tipo_compra: ""
         };
 
-        if(nombre === "" || correo === "" || telefono === ""){
+        if (nombre === "" || correo === "" || telefono === "") {
             alert("todos los campos deben estar llenos para poder generar el ticket")
             return
         }
@@ -33,6 +33,7 @@ const FormularioTicketRegistrar = () => {
 
         try {
             const respuesta = await axios.post("https://long-way-backend.onrender.com/ticket/agregar", ticket);
+            console.log(respuesta.data);
             alert(`Ticket registrado con éxito. Su número de ticket es: ${respuesta.data.id}`);
         } catch (error) {
             console.log("error al enviar ticket")
@@ -54,15 +55,15 @@ const FormularioTicketRegistrar = () => {
                             <p className="text-muted text-center mb-4">ingresa tus datos para poder contactarnos contigo</p>
                             <form onSubmit={obtenerDatos}>
                                 <div className="mb-3">
-                                    <input type="text" className="form-control" placeholder="nombre" value={nombre} onChange={(e) => setNombre(e.target.value)}/>
+                                    <input type="text" className="form-control" placeholder="nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} />
                                 </div>
 
                                 <div className="mb-3">
-                                    <input type="email" className="form-control" placeholder="correo" value={correo} onChange={(e) => setCorreo(e.target.value)}/>
+                                    <input type="email" className="form-control" placeholder="correo" value={correo} onChange={(e) => setCorreo(e.target.value)} />
                                 </div>
 
                                 <div className="mb-4">
-                                    <input type="text" className="form-control" placeholder="telefono" value={telefono} onChange={(e) => setTelefono(e.target.value)}/>
+                                    <input type="text" className="form-control" placeholder="telefono" value={telefono} onChange={(e) => setTelefono(e.target.value)} />
                                 </div>
 
                                 <div className="d-grid">
