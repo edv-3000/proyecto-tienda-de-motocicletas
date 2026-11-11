@@ -1,11 +1,14 @@
 const {pool} = require("../config/config")
 
-const ingresarticket = async({nombre, correo, telefono, id_moto,precio, estado, tipo_compra,
-     fecha_actualizacion})=>{
-       const consulta = `INSERT INTO ticket VALUES (DEFAULT,$1, $2, $3, $4, $5, $6, $7,DEFAULT, $8)`;
-        const values =[nombre,correo,telefono,id_moto,precio,estado,tipo_compra,fecha_actualizacion]
-        const ingresar = await pool.query(consulta, values)
-    }
+const ingresarticket = async ({nombre, correo, telefono, id_moto, precio, estado, tipo_compra, fecha_actualizacion}) => {
+    const consulta = `INSERT INTO ticket VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7,DEFAULT,$8) RETURNING id`;
+
+    const values = [nombre, correo, telefono, id_moto, precio, estado, tipo_compra, fecha_actualizacion];
+
+    const { rows } = await pool.query(consulta, values);
+
+    return rows[0];
+}
 const modificarticket = async (id, { nombre, correo, telefono, id_moto, estado, tipo_compra }) => {
     const consulta = ` UPDATE ticket SET  nombre = $2, correo = $3, telefono = $4, id_moto = $5, estado = $6, tipo_compra = $7, fecha_actualizacion = NOW() WHERE id = `
 
