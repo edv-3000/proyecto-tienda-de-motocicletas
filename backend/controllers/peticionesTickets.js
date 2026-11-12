@@ -12,10 +12,15 @@ const obtenerticketcorreo = async(req,res)=>{
     res.json(ticketscorreo)
 }
 
-const obtenertickets = async(req,res)=>{
-    const totaltickets = await tickets()
-    res.json(totaltickets)
-}
+const obtenertickets = async (req, res) => {
+    try {
+        const totaltickets = await tickets();
+        res.json(totaltickets);
+    } catch (error) {
+        console.error("ERROR EN TICKETS:", error);
+        res.status(500).json({ error: error.message });
+    }
+};
 
 const ingresarticketPost = async(req,res)=>{
     try {

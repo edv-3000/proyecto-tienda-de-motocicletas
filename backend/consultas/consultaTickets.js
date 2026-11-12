@@ -10,7 +10,8 @@ const ingresarticket = async ({ nombre, correo, telefono, id_moto, precio, estad
     return rows[0];
 }
 const modificarticket = async (id, { nombre, correo, telefono, id_moto, estado, tipo_compra }) => {
-    const consulta = ` UPDATE ticket SET  nombre = $2, correo = $3, telefono = $4, id_moto = $5, estado = $6, tipo_compra = $7, fecha_actualizacion = NOW() WHERE id = `
+    const consulta = ` UPDATE ticket SET  nombre = $2, correo = $3, telefono = $4,
+     id_moto = $5, estado = $6, tipo_compra = $7, fecha_actualizacion = NOW() WHERE id = $1`
 
     const values = [id, nombre, correo, telefono, id_moto, estado, tipo_compra]
 
