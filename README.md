@@ -1,4 +1,8 @@
-plicación desplegada: Pendiente de publicación.
+
+
+**Ver aplicación:** [LONG WAY - Tienda de motocicletas](https://proyecto-tienda-de-motocicletas-six.vercel.app/)
+
+**Area privada:** [LONG WAY - Tienda de motocicletas](https://proyecto-tienda-de-motocicletas-six.vercel.app/gestor/login)
 
 🛠️ Tecnologías utilizadas
 
@@ -127,4 +131,4 @@ Proyecto desarrollado como entrega final del curso Full Stack JavaScript de Desa
 
 ## 🚀 Proyecto desplegado
 
-**Ver aplicación:** [LONG WAY - Tienda de motocicletas](https://proyecto-tienda-de-motocicletas-six.vercel.app/)
+
