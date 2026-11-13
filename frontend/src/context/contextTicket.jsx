@@ -39,6 +39,7 @@ export const TicketProvider = ({ children }) => {
 const ModificarTicket = async (id, datos) => {
     try {
         await axios.put(`https://long-way-backend.onrender.com/ticket/modificar/${id}`, datos)
+        await GetTickets()
         await GetTicketid(id)
         alert("Ticket modificado correctamente")
     } catch (error) {

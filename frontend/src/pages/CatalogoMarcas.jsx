@@ -14,7 +14,7 @@ const CatalogoMarca = () => {
         <>
         <div className="main">
             {motos
-                .filter((moto) => moto.marca.toLowerCase() === marca)
+                .filter((moto) => moto.marca.toLowerCase() === marca && moto.estado === 1)
                 .map((moto) => (
                     <div className="card mb-3" key={moto.id} style={{ maxWidth: "540px" }}>
                         <div className="row g-0">

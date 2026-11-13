@@ -16,7 +16,7 @@ const Carta_moto_main = ({ }) => {
     return (
         <>
             <div className="main">
-                {motos.map((moto) => (
+                {motos.map((moto) =>(moto.estado === 1 &&(
                     <div className="card mb-3" key={moto.id} style={{ maxWidth: "540px" }}>
                         <div className="row g-0">
                             <div className="col-md-4">
@@ -34,7 +34,7 @@ const Carta_moto_main = ({ }) => {
                         </div>
                     </div>
 
-                ))}
+                )))}
             </div>
         </>
     )

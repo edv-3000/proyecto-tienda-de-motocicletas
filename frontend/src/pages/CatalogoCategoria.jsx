@@ -13,7 +13,7 @@ const CatalogoCategoria = () => {
     return (
         <>
             <div className="main">
-                {motos.filter((moto) => moto.categoria === categoria).map((moto) => (
+                {motos.filter((moto) => moto.categoria === categoria && moto.estado === 1).map((moto) => (
                         <div className="card mb-3" key={moto.id} style={{ maxWidth: "540px" }}>
                             <div className="row g-0">
                                 <div className="col-md-4">
